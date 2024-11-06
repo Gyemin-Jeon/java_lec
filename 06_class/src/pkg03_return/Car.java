@@ -9,4 +9,9 @@ public class Car {
     return "bmw";
   }
   
+  // 연습
+  String a() {
+    return "10";
+  }
+  
 }

@@ -27,15 +27,9 @@ public class ReturnEx {
     String brand = s.methodD();
     System.out.println(brand);
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
+    // 연습
+    String a = s.methodE();
+    System.out.println(a);
     
   }
 

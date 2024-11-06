@@ -58,21 +58,10 @@ public class Sample {
     return car.brand();
   }
   
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
+  // 연습
+  String methodE() {
+    Car b = new Car();
+    return b.a();
+  }
   
 }
