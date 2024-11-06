@@ -16,6 +16,33 @@ public class Ex01 {
     
     System.out.println(Arrays.toString(samDan));
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    int[] a = new int[9];
+    
+    for(int i = 0; i < a.length; i++) {
+      a[i] = 5 * (i + 1);
+    }
+    
+    System.out.println(Arrays.toString(a));
+    
+    
+    
+    
+    
+    
+    
+    
   }
 
 }
