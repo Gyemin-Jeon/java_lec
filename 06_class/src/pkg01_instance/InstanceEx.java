@@ -4,7 +4,7 @@ public class InstanceEx {
 
   public static void main(String[] args) {
 
-    // 클래스 Car 타입의 객체 (인스턴스)
+    // 클래스 Car 타입의 객체 (인스턴스) 사용하기
     
     // 클래스 Car 타입의 객체 선언 : 클래스가 곧 타입이다 ! (참조 타입)
     Car myCar;
