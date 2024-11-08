@@ -21,29 +21,6 @@ public class InstanceEx {
     Car momCar = new Car();
     momCar.drive();
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
   }
 
 }

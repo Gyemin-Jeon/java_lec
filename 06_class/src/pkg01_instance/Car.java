@@ -14,15 +14,4 @@ public class Car {
     System.out.println(speed + "km 속도로 드라이브 중");
   }
   
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
 }
