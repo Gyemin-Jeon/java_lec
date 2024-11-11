@@ -1,4 +1,4 @@
-package pkg00_square;
+package pkg00_Square;
 
 public class Rectangle {
 
