@@ -15,7 +15,7 @@ public class BankAccount {
    * @param money 입금액.
    * @exception 마이너스 금액 불가.
    */
-  void deposit(long money) {  
+  public void deposit(long money) {  
     try {
       if(money < 0) 
         throw new RuntimeException(money + "금액은 잘못된 금액입니다.");     
