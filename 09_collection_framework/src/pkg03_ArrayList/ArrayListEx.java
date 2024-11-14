@@ -33,7 +33,7 @@ public class ArrayListEx {
     members.set(0, "jenny");
     members.set(1, "rose");
     members.set(2, "jisu");
-    members.set(3, "Jlisa");
+    members.set(3, "lisa");
     
     
     // 요소 전체 확인
