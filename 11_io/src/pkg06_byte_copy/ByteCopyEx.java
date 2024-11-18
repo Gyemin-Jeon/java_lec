@@ -11,7 +11,7 @@ public class ByteCopyEx {
 
   public static void main(String[] args) {
     
-    File readFile = new File("\\dev_lec\\tools", "eclipse-jee-2023-09-R-win32-x86_64.zip");
+    File readFile = new File("C:\\Users\\Administrator\\Downloads", "eclipse-jee-2023-09-R-win32-x86_64.zip");
     File writeFile = new File("\\storage", readFile.getName());
     
     BufferedInputStream in = null;
