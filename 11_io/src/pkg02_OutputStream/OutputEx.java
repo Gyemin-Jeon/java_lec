@@ -11,12 +11,12 @@ import java.io.ObjectOutputStream;
 public class OutputEx {
 
   public static void a() {
-   
+    
     // 생성 모드 : 항상 새로 만드는 모드
     
     // 디렉터리
     File dir = new File("\\storage");
-    if( dir.exists() )
+    if( !dir.exists() ) 
       dir.mkdirs();
     
     // 파일
@@ -27,18 +27,16 @@ public class OutputEx {
     
     try {
       
-    // FileOutputStream (파일 출력 스트림) 인스턴스 생성 : 파일 생성 시점
+      // FileOutputStream (파일 출력 스트림) 인스턴스 생성 : 파일 생성 시점
+      out = new FileOutputStream(file);
       
-    out = new FileOutputStream(file);
+      // 출력 : 하나의 데이터 내보내기 (단위 : int)
+      int c = 'A';
+      out.write(c);
       
-    // 출력 : 데이터 내보내기 (단위 : int)
-    int c = 'A';
-    out.write(c);
-    
-    // 출력 : 여러 데이터 내보내기 (단위 : byte[])
-    // byte[] b = new byte[] {'p', 'p', 'l', 'e'};
-    byte[] b = "pple".getBytes();
-    out.write(b);
+      // 출력 : 여러 데이터 내보내기 (단위 : byte[])
+      byte[] b = "pple".getBytes();  // byte[] b = new byte[] {'p', 'p', 'l', 'e'};
+      out.write(b);
       
     } catch (FileNotFoundException e) {
       e.printStackTrace();
@@ -73,12 +71,12 @@ public class OutputEx {
     
     try {
       
-      out = new FileOutputStream(file, true); // true : 추가 모드 설정
+      out = new FileOutputStream(file, true);  // true : 추가 모드 설정
       
       int c = '안';
       out.write(c);
       
-      byte[] b = "녕하세요.".getBytes();
+      byte[] b = "녕하세요".getBytes();
       out.write(b);
       
     } catch (IOException e) {  // FileNotFoundException 의 부모 클래스이므로 함께 처리 가능하다.
@@ -86,14 +84,14 @@ public class OutputEx {
     } finally {
       try {
         if(out != null)
-           out.close();
-      } catch (IOException e) {
+          out.close();
+      } catch (Exception e) {
         e.printStackTrace();
       }
     }
     
   }
-  
+
   public static void c() {
     
     // 입출력 성능 향상을 위해 함께 사용하는 보조 스트림 : BufferedOutputStream
@@ -131,47 +129,48 @@ public class OutputEx {
   }
 
   public static void d() {
-  
-  // 변수 그대로 출력하는 스트림 : FataOutputStream
-  
-  File dir = new File("\\storage");
-  if(!dir.exists())
-    dir.mkdirs();
-  
-  File file = new File(dir, "sample4.dat");
-  
-  DataOutputStream out = null;
-  
-  try {
-    out = new DataOutputStream(new FileOutputStream(file));
     
-    int age = 10;
-    out.writeInt(age);
+    // 변수 그대로 출력하는 스트림 : DataOutputStream
     
-    double height = 150.0;
-    out.writeDouble(height);
+    File dir = new File("\\storage");
+    if(!dir.exists())
+      dir.mkdirs();
     
-    char gender = '남';
-    out.writeChar(gender);
+    File file = new File(dir, "sample4.dat");
     
-    boolean isCute = true;
-    out.writeBoolean(isCute);
+    DataOutputStream out = null;
     
-    String name = "또치";
-    out.writeUTF(name);
-    
-  } catch (IOException e) {
-    e.printStackTrace();
-  } finally {
     try {
-      if(out != null)
-        out.close();
+      
+      out = new DataOutputStream(new BufferedOutputStream(new FileOutputStream(file)));
+      
+      int age = 10;
+      out.writeInt(age);
+      
+      double height = 150.0;
+      out.writeDouble(height);
+      
+      char gender = '남';
+      out.writeChar(gender);
+      
+      boolean isCute = true;
+      out.writeBoolean(isCute);
+      
+      String name = "또치";
+      out.writeUTF(name);
+      
     } catch (IOException e) {
       e.printStackTrace();
+    } finally {
+      try {
+        if(out != null)
+          out.close();
+      } catch(IOException e) {
+        e.printStackTrace();
+      }
     }
+    
   }
-
-}
   
   public static void e() {
     
@@ -189,7 +188,9 @@ public class OutputEx {
       
       out = new ObjectOutputStream(new FileOutputStream(file));
       
-      out.writeObject(new Car("genesis", "G90")); // 직렬화가 가능한 인스턴스를 출력할 수 있다.
+      out.writeObject(new Car("genesis", "G90"));  // 직렬화가 가능한 인스턴스를 출력할 수 있다.
+      out.writeObject(new Car("volvo", "XC90"));
+      out.writeObject(new Car("bmw", "X7"));
       
     } catch (IOException e) {
       e.printStackTrace();
@@ -201,7 +202,6 @@ public class OutputEx {
         e.printStackTrace();
       }
     }
-    
     
   }
   
