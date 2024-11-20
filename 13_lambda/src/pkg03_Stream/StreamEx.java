@@ -8,12 +8,13 @@ import java.util.List;
 import java.util.stream.Stream;
 
 /*
- * package java.util.function;
+ * package java.util.stream;
  * 
  * public interface Stream<T> {
- *   Stream<T> filter(Predicate<T> predicate); // Predicate 결과가 true 인 데이터만 Stream 으로 반환
- *   Stream<R> map(Function<T, R> mapper);     // Function 의 반환 결과를 Stream 으로 반환
- *   void forEach(Consumer<T> action);         // forEach 메소드를 호출한 Stream 의 모든 요소를 Consumer 로 하나씩 전달  
+ *   Stream<T> filter(Predicate<T> predicate);  // Predicate 결과가 true 인 데이터만 Stream 으로 반환
+ *   Stream<R> map(Function<T, R> mapper);      // Function 의 반환 결과를 Stream 으로 반환
+ *   void forEach(Consumer<T> action);          // forEach 메소드를 호출한 Stream 의 모든 요소를 Consumer 로 하나씩 전달
+ * }
  */
 
 public class StreamEx {
@@ -29,12 +30,14 @@ public class StreamEx {
     List<String> list = Arrays.asList("한국", "일본", "중국", "베트남");
     Stream<String> s3 = list.stream();
     
-    File license = new File("C:\\\\Program Files\\\\Java\\\\jdk-17", "LICENSE");
+    File license = new File("C:\\Program Files\\Java\\jdk-17", "LICENSE");
     BufferedReader in = new BufferedReader(new FileReader(license));
-    Stream<String> s4 = in.lines(); // 파일의 각 라인을 요소로 저장하고 있는 Stream
+    Stream<String> s4 = in.lines();  // 파일의 각 라인을 요소로 저장하고 있는 Stream
     
     // forEach 메소드 활용
-    s1.forEach(animal -> System.out.println(animal));
+    s1.forEach(animal -> {
+      System.out.println(animal); 
+    });
     s2.forEach(fruit -> System.out.println(fruit));
     s3.forEach(nation -> System.out.println(nation));
     StringBuilder builder = new StringBuilder();
@@ -42,21 +45,20 @@ public class StreamEx {
     System.out.println(builder.toString());
     in.close();
     
-    
- // 연습. JAVA_HOME 의 모든 디렉터리/파일 이름 출력하기
+    // 연습. JAVA_HOME 의 모든 디렉터리/파일 이름 출력하기
     File javaHome = new File("C:\\Program Files\\Java\\jdk-17");
     File[] files = javaHome.listFiles();
     Stream<File> s5 = Arrays.stream(files);
     s5.forEach(file -> System.out.println(file.getName()));
     
   }
-  
+
   public static void b() {
     
     List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
     
     numbers.stream()
-      .filter(number -> number % 3 == 0) // Stream 요소 중 number % 3 == 0 결과가 true 인 요소(3의 배수)만 별도 Stream 으로 반환
+      .filter(number -> number % 3 == 0)  // Stream 요소 중 number % 3 == 0 결과가 true 인 요소(3의 배수)만 별도 Stream 으로 반환
       .forEach(number -> System.out.println(number));
     
     List<Fruit> fruits = Arrays.asList(
