@@ -33,7 +33,7 @@ public class HttpEx {
       System.out.println(method);
       // conn.setRequestMethod("GET");          // 요청 메소드 설정
       
-      // 요청 헤더(User-Agent, Content-Type, Referer 등)
+      // 요청 헤더(User-Agent, Content-Type, Referrer 등)
       String userAgent = conn.getRequestProperty("User-Agent");    // 요청 헤더 확인
       System.out.println(userAgent);
       // conn.setRequestProperty("Content-Type", "application/json"); 요청 헤더 설정
